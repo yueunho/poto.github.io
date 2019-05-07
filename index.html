@@ -37,14 +37,14 @@
             var decodedString =  decodeURIComponent(escape(window.atob( data.content )));
             $scope.comfile = decodedString;
             console.log( $scope.comfile);
-            //$scope.posts = jsyaml.load($scope.comfile);
+            $scope.posts = jsyaml.load($scope.comfile);
         });
     }]);
 
 </script>
 
 <div ng-app="four04App" ng-controller="PostListCtrl">
-  <div ng-repeat='comfile  in comfile '>  
-      <a>{{comfile.name}}</a>
+  <div ng-repeat='posts  in posts '>  
+      <a>{{posts.name}}</a>
   </div>
 </div>
