@@ -9,3 +9,5 @@ url: https://github.com/yueunho/poto.github.io
 baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
 timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
+plugins:
+  - jekyll-angular
