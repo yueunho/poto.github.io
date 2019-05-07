@@ -41,6 +41,10 @@
             $scope.posts = jsyaml.load($scope.comfile);
               console.log( $scope.posts);
         });
+        
+        fuction userDelectory(){
+           console.log("진입완료")        
+        }
     }]);
 
 </script>
@@ -54,7 +58,7 @@
            <th>번호</th>
            <th>email</th>   
                <tr data-ng-repeat="a in posts">
-                <td><a ng-click="" data-ng-bind="a.name"></a><td>
+                <td><a ng-click="userDelectory();" data-ng-bind="a.name"></a><td>
                 <td><span data-ng-bind="a.phone"></span><td>
                 <td><span data-ng-bind="a.mail"></span><td>
               </tr>
