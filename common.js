@@ -1,14 +1,4 @@
- <style>
-      table {
-        width: 100%;
-        border: 1px solid #333333;
-      }
-      td {
-        padding: 10px;
-        border: 1px solid #333333;
-        text-align: center;
-      }
-</style>
+
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.js"></script>
