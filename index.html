@@ -35,8 +35,8 @@
         $scope.comfile;
         $scope.posts = [];
         $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml?access_token=8460937fd278bd4f79e0b49576abab921ce08a31').success(function (data) {
-            console.log("data")
-            $scope.comfile =atob(data.content) 
+            console.log("data",data);
+            $scope.comfile =atob(data.content); 
             $scope.posts = jsyaml.load($scope.comfile);
         });
     }]);
