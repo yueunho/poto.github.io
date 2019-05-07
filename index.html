@@ -34,7 +34,9 @@
         $scope.posts = [];
         $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml',{ access_token: '8460937fd278bd4f79e0b49576abab921ce08a31'}).success(function (data) {
           console.log("data",data);
-          $scope.comfile =  decodeURIComponent(data.content);
+            var base64EncodedString =   decodeURIComponent(data.content)
+            var decodedString =  $ base64.decode(base64EncodedString);
+          $scope.comfile = decodedString;
   
             console.log( $scope.comfile);
             //$scope.posts = jsyaml.load($scope.comfile);
