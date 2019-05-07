@@ -1,10 +1,6 @@
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.min.js"></script>
 
-<script>
+
     var App = angular.module("four04App",['base64']);
     App.config(function($interpolateProvider) {
         $interpolateProvider.startSymbol('⸨');
@@ -46,4 +42,4 @@
        
     }]);
 
-</script>
+
