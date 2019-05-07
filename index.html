@@ -32,31 +32,8 @@
         $scope.posts = [];
         $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml',{ access_token: '8460937fd278bd4f79e0b49576abab921ce08a31'}).success(function (data) {
           console.log("data",data);
-          $scope.comfile =atob(data.content); 
-          var i = 0;
-          var c = c1 = c2 = 0;
-          while ( i <  $scope.comfile.length ) {
- 
-            c =  $scope.comfile.charCodeAt(i);
- 
-            if (c < 128) {
-                 $scope.comfile  +=  $scope.comfile.fromCharCode(c);
-                i++;
-            }
-            else if((c > 191) && (c < 224)) {
-                c2 =  $scope.comfile.charCodeAt(i+1);
-                 $scope.comfile +=  $scope.comfile.fromCharCode(((c & 31) << 6) | (c2 & 63));
-                i += 2;
-            }
-            else {
-                c2 =  $scope.comfile.charCodeAt(i+1);
-                c3 =  $scope.comfile.charCodeAt(i+2);
-                 $scope.comfile +=  $scope.comfile.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-                i += 3;
-            }
- 
-        }            
-         
+          $scope.comfile =Buffer.from(base64text, 'base64').toString(data.content); 
+  
             console.log( $scope.comfile);
             //$scope.posts = jsyaml.load($scope.comfile);
         });
