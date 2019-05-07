@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.min.js"></script>
 <script>
 
-    var App = angular.module("four04App", []);
+    var App = angular.module("four04App", ['base64']);
 
     App.config(function($interpolateProvider) {
         $interpolateProvider.startSymbol('⸨');
@@ -34,7 +34,7 @@
         $scope.posts = [];
         $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml',{ access_token: '8460937fd278bd4f79e0b49576abab921ce08a31'}).success(function (data) {
           console.log("data",data);
-          $scope.comfile = base64.decode($scope.comfile);
+          $scope.comfile =  $base64.decode($scope.comfile);
   
             console.log( $scope.comfile);
             //$scope.posts = jsyaml.load($scope.comfile);
