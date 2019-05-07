@@ -23,3 +23,5 @@ collections:
 # Global Variables
 # formulaurl: "/shanghanlun/reference/Formulas"
 # herburl: "/shanghanlun/reference/Herbs"
+
+theme: jekyll-theme-minimal
