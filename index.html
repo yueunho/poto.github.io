@@ -5,6 +5,7 @@
 <h1>Search for it ?</h1>
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.js"></script>
 <script>
 
     var App = angular.module("four04App", []);
@@ -31,25 +32,15 @@
     App.controller('PostListCtrl', ['$scope', '$http', function ($scope, $http) {
         // draft articles in _posts are hidden from public view, and begin 1970-01-01-
         // this allows me to copy/paste the file name direct to the browser for sharing of previews.
-        if (window.location.href.indexOf("1970-01-01") !== -1) {
-            window.location.href = window.location.href.replace(/1970-01-01-/, "1970/01/01/").replace(/\.textile/, "").replace(/\.markdown/, "").replace(/_posts\//, "");
-        }
-        $scope.query = "";
         $scope.posts = [];
-        $http.get('/ph_postings_meta.json').success(function (data) {
-            $scope.posts = data.posts;
+        $http.get('/_data/user.yml').success(function (data) {
+            $scope.posts = jsyaml.load(data);
         });
     }]);
 
 </script>
 
 <div ng-app="four04App" ng-controller="PostListCtrl">
-
-    <p>Subset to posts containing these words: <input ng-model="query"></p>
-    <p>Posts matching above query:</p>
-    <ul>
-        <li ng-show="post.title != ''" ng-repeat="post in posts | matchesQuery:query">
-          <a ng-href="⸨post.href⸩">⸨ post.title ⸩</a>
-        </li>
-    </ul>
+  <div ng-repeat='posts in posts'> 
+    <a href="/">{{posts.name}}</a>
 </div>
