@@ -32,9 +32,11 @@
     App.controller('PostListCtrl', ['$scope', '$http', function ($scope, $http) {
         // draft articles in _posts are hidden from public view, and begin 1970-01-01-
         // this allows me to copy/paste the file name direct to the browser for sharing of previews.
+        $scope.comfile;
         $scope.posts = [];
         $http.get('/_data/user.yml').success(function (data) {
-            $scope.posts = jsyaml.load(data);
+            $scope.comfile =atob(data.content) 
+            $scope.posts = jsyaml.load($scope.comfile);
         });
     }]);
 
