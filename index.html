@@ -1,7 +1,55 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+<h1>Sorry!</h1>
+
+<p>The page you're after isn't hosted here</p>
+
+<h1>Search for it ?</h1>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script>
+
+    var App = angular.module("four04App", []);
+
+    App.config(function($interpolateProvider) {
+        $interpolateProvider.startSymbol('⸨');
+        $interpolateProvider.endSymbol('⸩');
+    });
+
+    App.filter('matchesQuery', function(){
+        return function(items, query){
+            var alternate = query.replace(/ /g,"_").toLowerCase();
+            var lcQuery = query.toLowerCase();
+            var arrayToReturn = [];
+            for (var i=0; i<items.length; i++){
+                if (items[i].title.toLowerCase().indexOf(lcQuery) !== -1 || items[i].words.indexOf(alternate) !== -1) {
+                    arrayToReturn.push(items[i]);
+                }
+            }
+            return arrayToReturn;
+        };
+    });
+
+    App.controller('PostListCtrl', ['$scope', '$http', function ($scope, $http) {
+        // draft articles in _posts are hidden from public view, and begin 1970-01-01-
+        // this allows me to copy/paste the file name direct to the browser for sharing of previews.
+        if (window.location.href.indexOf("1970-01-01") !== -1) {
+            window.location.href = window.location.href.replace(/1970-01-01-/, "1970/01/01/").replace(/\.textile/, "").replace(/\.markdown/, "").replace(/_posts\//, "");
+        }
+        $scope.query = "";
+        $scope.posts = [];
+        $http.get('/ph_postings_meta.json').success(function (data) {
+            $scope.posts = data.posts;
+        });
+    }]);
+
+</script>
+
+<div ng-app="four04App" ng-controller="PostListCtrl">
+
+    <p>Subset to posts containing these words: <input ng-model="query"></p>
+    <p>Posts matching above query:</p>
+    <ul>
+        <li ng-show="post.title != ''" ng-repeat="post in posts | matchesQuery:query">
+          <a ng-href="⸨post.href⸩">⸨ post.title ⸩</a>
+        </li>
+    </ul>
+</div>
