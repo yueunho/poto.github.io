@@ -11,3 +11,8 @@ timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_databa
 
 plugins:
   - jekyll-angular
+  
+collections:
+  authors:
+    title: Authors
+    output: true
