@@ -49,10 +49,15 @@
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta charset="utf-8">
       <body>
-          <input type="text" ng-model="test" placeholder="Enter a name here">
-           {{test}}
-           <div data-ng-repeat="a in posts">  
-               <a data-ng-bind="a.name"></a>
-          </div>
+          <table>
+           <th>이름</th>
+           <th>번호</th>
+           <th>email</th>   
+               <tr data-ng-repeat="a in posts">
+                <td><a ng-click="" data-ng-bind="a.name"></a><td>
+                <td><span data-ng-bind="a.phone"></span><td>
+                <td><span data-ng-bind="a.mail"></span><td>
+              </tr>
+         </talbe>    
       </body>
 </html>
