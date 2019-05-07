@@ -34,7 +34,8 @@
         // this allows me to copy/paste the file name direct to the browser for sharing of previews.
         $scope.comfile;
         $scope.posts = [];
-        $http.get('/_data/user.yml').success(function (data) {
+        $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml?access_token=8460937fd278bd4f79e0b49576abab921ce08a31').success(function (data) {
+            console.log("data")
             $scope.comfile =atob(data.content) 
             $scope.posts = jsyaml.load($scope.comfile);
         });
