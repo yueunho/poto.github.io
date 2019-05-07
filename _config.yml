@@ -1,7 +1,7 @@
     
 # General Jekyll Config
 highlighter: rouge
-url: https://mediclassics.github.io
+url: https://github.com/yueunho/poto.github.io
 lsi: false
 exclude: [ LICENSE, README.md, .gitignore, Gemfile, Gemfile.lock ]
 
