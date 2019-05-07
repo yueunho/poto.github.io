@@ -7,12 +7,13 @@
 <script>
 
     var App = angular.module("four04App",['base64']);
-
+    $scope.comfile;   
+    $scope.posts = [];
     App.config(function($interpolateProvider) {
         $interpolateProvider.startSymbol('⸨');
         $interpolateProvider.endSymbol('⸩');
     });
-
+      
     App.filter('matchesQuery', function(){
         return function(items, query){
             var alternate = query.replace(/ /g,"_").toLowerCase();
@@ -30,8 +31,7 @@
     App.controller('PostListCtrl', ['$scope', '$http','$base64', function ($scope, $http, $base64) {
         // draft articles in _posts are hidden from public view, and begin 1970-01-01-
         // this allows me to copy/paste the file name direct to the browser for sharing of previews.
-        $scope.comfile;
-        $scope.posts = [];
+       
         $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml',{ access_token: '8460937fd278bd4f79e0b49576abab921ce08a31'}).success(function (data) {
           console.log("data",data);
             var decodedString =  decodeURIComponent(escape(window.atob( data.content )));
@@ -48,7 +48,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta charset="utf-8">
       <body>
-           <div  data-ng-repeat="a in posts">  
+           <div data-ng-repeat="a in posts">  
               <h1>{{$index}}</h1>
               <a>{{a.name}}</a>
           </div>
