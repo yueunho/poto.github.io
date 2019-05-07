@@ -1,5 +1,5 @@
 
-<h1>1111</h1>
+
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.js"></script>
@@ -44,9 +44,11 @@
 
 </script>
 
-<div ng-app="four04App" ng-controller="PostListCtrl">
-  <div  data-ng-repeat="a in posts">  
-      <h1>{{$index}}</h1>
-      <a>{{a.name}}</a>
-  </div>
-</div>
+<html ng-app="four04App" ng-controller="PostListCtrl">
+  <body>
+       <div  data-ng-repeat="a in posts">  
+          <h1>{{$index}}</h1>
+          <a>{{a.name}}</a>
+      </div>
+  </body>
+</html>
