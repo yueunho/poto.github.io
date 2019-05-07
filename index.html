@@ -52,8 +52,7 @@
           <input type="text" ng-model="test" placeholder="Enter a name here">
            {{test}}
            <div data-ng-repeat="a in posts">  
-              <input type="text" ng-model="a.name" placeholder="Enter a name here">
-               <a>{a.name}</a>
+               <a data-ng-bind="a.name"></a>
           </div>
       </body>
 </html>
