@@ -45,10 +45,12 @@
 </script>
 
 <html ng-app="four04App" ng-controller="PostListCtrl">
-  <body>
-       <div  data-ng-repeat="a in posts">  
-          <h1>{{$index}}</h1>
-          <a>{{a.name}}</a>
-      </div>
-  </body>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta charset="utf-8">
+      <body>
+           <div  data-ng-repeat="a in posts">  
+              <h1>{{$index}}</h1>
+              <a>{{a.name}}</a>
+          </div>
+      </body>
 </html>
