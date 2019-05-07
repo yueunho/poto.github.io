@@ -1,5 +1,5 @@
 
-<h1>23232</h1>
+<h1>333333</h1>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.js"></script>
@@ -34,7 +34,7 @@
         $scope.posts = [];
         $http.get('https://api.github.com/repos/yueunho/poto.github.io/contents/_data/user.yml',{ access_token: '8460937fd278bd4f79e0b49576abab921ce08a31'}).success(function (data) {
           console.log("data",data);
-            var decodedString =  decodeURIComponent(escape(window.atob( data.content ))));
+            var decodedString =  decodeURIComponent(escape(window.atob( data.content )));
             $scope.comfile = decodedString;
             console.log( $scope.comfile);
             //$scope.posts = jsyaml.load($scope.comfile);
