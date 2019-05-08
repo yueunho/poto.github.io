@@ -27,8 +27,27 @@
     });
 
     App.service('foo', function() {
-                
-       return "fooname"; 
+       var params = null;
+
+        function getParams() {
+
+        return params;
+
+        }
+
+        function setParams(newParams) {
+
+        params = newParams;
+
+        }
+
+        return {
+
+        getParams: getParams,
+
+        setParams: setParams,
+
+        }      
    });
 
 
@@ -47,12 +66,13 @@
           
             $scope.posts = jsyaml.load($scope.comfile);
               console.log( $scope.posts);
+           
               console.log(foo);
             
         });
         
       $scope.userDelectory = function() {
-        console.log("진입완료")      
+          foo.setParams()  
       };
        
     }]);
