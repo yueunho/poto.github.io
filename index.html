@@ -10,10 +10,10 @@
            <th>번호</th>
            <th>email</th>   
                <tr data-ng-repeat="a in posts">
-                <td><a ng-click="userDelectory();" data-ng-bind="a.name"></a></td>
+                <td><a ng-click="userDelectory(a.name);" data-ng-bind="a.name"></a></td>
                 <td><span data-ng-bind="a.phone"></span></td>
                 <td><span data-ng-bind="a.mail"></span></td>
               </tr>
-         </talbe>    
+         </talbe>
       </body>
 </html>
